@@ -1,0 +1,11 @@
+<div id="container">
+  <mat-toolbar>
+    <h1>LOGO</h1>
+    <div *ngIf="auth.loggedIn" class="rightfloat" (click)="logout()">
+      <span>Logout</span>
+    </div>
+    <div *ngIf="!auth.loggedIn" class="rightfloat">
+      <span routerLink="/login">Logout</span>
+    </div>
+  </mat-toolbar>
+</div>

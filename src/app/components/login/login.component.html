@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title> 
+  <form class="example-container" [formGroup]="loginForm" (ngSubmit)="onsubmit()">
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="email" class="form-control" placeholder="Enter Username" 
+        formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+      </mat-form-field>
+      
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+      </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="password" class="form-control" id="password" placeholder="Enter Password"
+        formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+      </mat-form-field>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
+    </div>
+    <button mat-button>Login</button>
+  </form>
+</mat-card>

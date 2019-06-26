@@ -1,0 +1,36 @@
+<div id="dialogbox">
+    <h1 *ngIf="data.emp._id">Edit Employee</h1>
+    <h1 *ngIf="!data.emp._id">New Employee</h1>
+    <div id="editempform">
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.emp.name" type="text" placeholder="Employee Name" class="mat-form-field-required-marker">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.emp.empid" min="3" type="number" placeholder="Employee ID" class="mat-form-field-required-marker">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.emp.email" type="email" placeholder="Email" class="mat-form-field-required-marker">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.emp.phoneno" min="10" type="tel" placeholder="Phone no" class="mat-form-field-required-marker">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.emp.role" type="text" placeholder="Role" class="mat-form-field-required-marker">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Employee Status</mat-label>
+            <mat-select >
+                <mat-option *ngFor="let status of statuss" value="data.emp.status" class="mat-form-field-required-marker">
+                {{status.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div mat-dialog-actions class="submitbtn">
+            <button mat-button (click)="onNoClick()">Close</button>
+            <button mat-button (click)="saveemp()" cdkFocusInitial>
+                <span *ngIf="data.emp._id">Update Employee</span>
+                <span *ngIf="!data.emp._id">Create New Employee</span>
+            </button>
+        </div>
+    </div>
+</div>

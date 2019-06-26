@@ -1,0 +1,14 @@
+h1 {
+    margin-bottom: 10%;
+}
+#editempform{
+    text-align: center;
+}
+
+mat-form-field {
+    margin-left: 10px;
+}
+
+.submitbtn {
+    float: right;
+}

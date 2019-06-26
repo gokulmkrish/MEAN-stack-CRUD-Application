@@ -1,0 +1,54 @@
+#container2 {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+mat-card-title{
+    width: 90%;
+    margin-left: 5%;
+}
+.cardtitlebtns {
+    display: inline-block;
+}
+.btn1{
+    width: 15%;
+}
+.btn2 {
+    width: 60%;
+}
+.filetersearchfield {
+    width: 25%;
+    font-size: 15px;
+}
+table {
+    width: 90%;
+    margin-left: 5%;
+    text-decoration: none;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+th {
+    text-align: center;
+}
+
+.cdk-column-actions{
+    text-align: center;
+}
+
+#showemp1 {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; 
+}
+
+#mat-card1 {
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 35%;
+}
