@@ -1,0 +1,5 @@
+{
+    "mongodb":"mongodb://localhost:27017/Accounts",
+    "secret":"gokulkrish",
+    "port":"3000"
+}

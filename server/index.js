@@ -5,14 +5,16 @@ const mongoose = require("mongoose");
 const uniqueValidator = require('mongoose-unique-validator');
 const Validator = require('schema-validator');
 const bcrypt = require('bcrypt-nodejs');
-const PORT = process.env.PORT || 3000;
 const app = express();
 const fs = require('fs');
-var path = require('path')
+const path = require('path');
+const config = require("./configs.json");
 
-mongoose.connect("mongodb://localhost:27017/Accounts", { useNewUrlParser: true, useCreateIndex: true });
+const PORT = process.env.PORT || config.port || 3000;
 
-app.set("Secret", "gokulkrish");
+mongoose.connect(config.mongodb, { useNewUrlParser: true, useCreateIndex: true });
+
+app.set("Secret", config.secret);
 app.use(express.json());
 
 // use morgan to log requests to the console
@@ -29,18 +31,14 @@ var empSchema = schema({
     role: { type: "string", required: true, description: "required and must be a string", },
     status: { type: "string", required: true, description: "required and must be a string", },
     usertype: { type: "string" }
-}, { versionKey: false }
-);
+}, { versionKey: false });
 
 var adminSchema = schema({
     username: { type: "string", required: true, description: "required string" },
     password: { type: "string", required: true, description: "required string" },
     name: { type: "string", required: false, description: "required string" },
     email: { type: "string", required: false, description: "required string" },
-}, {
-        collection: "admin"
-    }
-);
+}, { collection: "admin" });
 
 //Validations   
 empSchema.plugin(uniqueValidator);

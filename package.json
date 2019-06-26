@@ -7,6 +7,7 @@
     "build": "ng build",
     "dev": "concurrently \"ng serve --proxy-config proxy.conf.json --open\" \"nodemon server/index\"",
     "prod": "concurrently \"ng build --aot=true --prod && node server/index\"",
+    "backend":"nodemon server/index",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
