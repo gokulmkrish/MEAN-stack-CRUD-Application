@@ -16,6 +16,7 @@
 # Additional files
 /nodeserver
 /server/public
+/server/*.json
 
 # profiling files
 chrome-profiler-events.json

@@ -52,8 +52,8 @@ export class ViewdialogcompComponent{
     if(this.data.emp._id){
       this.empserve.updateemp(this.data.emp).subscribe(
         res => {if(res){
-          console.log("User created\n", res);
-          this.router.navigate(['/']);
+          console.log("User Updated\n", res);
+          this.router.navigateByUrl('/');
           this.openSnackBar({"message":"Employee Updated Succesfully", "type":"success"});
         }else{
           this.openSnackBar({"message":"Problem in Employee Updation", "type":"error" });
@@ -64,6 +64,7 @@ export class ViewdialogcompComponent{
         res => { if(res){
           this.data = res;
           console.log("User created\n", res);
+          this.router.navigateByUrl('/');
           this.openSnackBar({"message":"Employee Created Succesfully", "type":"success"});
         }else{
           this.openSnackBar({"message":"Problem in Employee Creation", "type":"error"});
