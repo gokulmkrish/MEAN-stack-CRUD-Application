@@ -6,14 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm run dev` for a dev ui and nodejs server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. and also runs the backend server parallelly
 
-## UI server
+## Fullstack Server
 
-Run `ng s -o` or `npm run start` for a dev UI server. It automatically runs on the `http://localhost:4200`. You can use `--port=4201` to chage the port.
-
-## Baceend serve
-
-Run `node server/index` or `npm run backend` for a backend server. It automatically runs on the 3000 port.
-
+Run `node server` for full stack server, which will be served with the production build files of angular and it required to build the server
 
 ## Code scaffolding
 
