@@ -1,16 +1,16 @@
-const express = require('express');
-const morgan = require('morgan');
-const jwt = require('jsonwebtoken');
-const mongoose = require("mongoose");
-const uniqueValidator = require('mongoose-unique-validator');
-const Validator = require('schema-validator');
-const bcrypt = require('bcrypt-nodejs');
-const app = express();
-const fs = require('fs');
-const path = require('path');
-const config = require("./configs.json");
+const express = require('express')
+    , morgan = require('morgan')
+    , jwt = require('jsonwebtoken')
+    , mongoose = require("mongoose")
+    , uniqueValidator = require('mongoose-unique-validator')
+    , Validator = require('schema-validator')
+    , bcrypt = require('bcrypt-nodejs')
+    , app = express()
+    , fs = require('fs')
+    , path = require('path')
+    , config = require('./configs.json')
 
-const PORT = process.env.PORT || config.port || 3000;
+    , PORT = process.env.PORT || config.port || 3000;
 
 mongoose.connect(config.mongodb, { useNewUrlParser: true, useCreateIndex: true });
 
@@ -63,9 +63,10 @@ var User = mongoose.model("Users", empSchema);
 var Admin = mongoose.model("admin", adminSchema);
 
 //to check the server status
-app.get('/', (req, res) => {
+app.use('/', express.static(path.join(__dirname, '../dist/emp2')));
+/*app.get('/', (req, res) => {
     res.send("<h2>EmpForm App Server running on" + PORT + "</h2>");
-});
+});*/
 
 // Api Login
 app.post('/api/admin/authenticate', (req, res) => {
@@ -96,7 +97,7 @@ app.post('/api/admin/authenticate', (req, res) => {
 });
 
 // Middlware to check the authorizationd
-app.use(function (req, res, next) {
+app.get('/api', function (req, res, next) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
     if (token) {
         jwt.verify(token, app.get('Secret'), function (err, decoded) {
